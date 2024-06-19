@@ -4,6 +4,7 @@ import { MultiSelect } from "primereact/multiselect";
 import { IMultiSelect } from "./multiSelect.model";
 import { IFormFieldType } from "../../../../library/utilities/constant";
 import { FormFieldError } from "../formFieldError/FormFieldError";
+import { useTranslation } from "react-i18next";
 
 export const MultiSelects = (props: IMultiSelect) => {
   const {
@@ -19,6 +20,7 @@ export const MultiSelects = (props: IMultiSelect) => {
     control,
     formState: { errors },
   } = useFormContext();
+  const { t } = useTranslation();
   const defaultPlaceHolder: string = t("components.multiSelect.placeholder");
   const getClassNames = () => {
     let labelClassName = "";

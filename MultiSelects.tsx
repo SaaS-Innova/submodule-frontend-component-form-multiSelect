@@ -11,15 +11,15 @@ export const MultiSelects = (props: IMultiSelect) => {
     form,
     fieldType,
     optionLabel = "label",
-    maxSelectedLabels
+    maxSelectedLabels,
   } = props;
-  const { label, options,placeholder } = form[attribute];
+  const { label, options, placeholder } = form[attribute];
   const { required, disabled } = form[attribute].rules;
   const {
     control,
     formState: { errors },
   } = useFormContext();
-
+  const defaultPlaceHolder: string = t("components.multiSelect.placeholder");
   const getClassNames = () => {
     let labelClassName = "";
     let fieldClassName = "";
@@ -46,7 +46,7 @@ export const MultiSelects = (props: IMultiSelect) => {
     return { labelClassName, fieldClassName, divClassName };
   };
   const { labelClassName, fieldClassName, divClassName } = getClassNames();
-  
+
   const labelElement = (
     <label htmlFor={attribute} className={labelClassName}>
       {label} {required && "*"}
@@ -57,27 +57,27 @@ export const MultiSelects = (props: IMultiSelect) => {
     <div className={fieldClassName}>
       {fieldType !== IFormFieldType.NO_LABEL && labelElement}
       <div className={divClassName}>
-      <Controller
-        name={attribute}
-        control={control}
-        rules={inputValidator(form[attribute].rules, label)}
-        render={({ field }) => (
-          <MultiSelect
-            id={attribute}
-            value={field.value} 
-            options={options}
-            disabled={disabled}
-            placeholder={placeholder}
-            optionLabel={optionLabel}
-            maxSelectedLabels={maxSelectedLabels}
-            filter
-            className={`w-full ${errors[attribute] ? "p-invalid" : ""}`}
-            onChange={(e) => {
-             field.onChange(e.value);
-            }}
-          />
-        )}
-      />
+        <Controller
+          name={attribute}
+          control={control}
+          rules={inputValidator(form[attribute].rules, label)}
+          render={({ field }) => (
+            <MultiSelect
+              id={attribute}
+              value={field.value}
+              options={options}
+              disabled={disabled}
+              placeholder={placeholder || defaultPlaceHolder}
+              optionLabel={optionLabel}
+              maxSelectedLabels={maxSelectedLabels}
+              filter
+              className={`w-full ${errors[attribute] ? "p-invalid" : ""}`}
+              onChange={(e) => {
+                field.onChange(e.value);
+              }}
+            />
+          )}
+        />
         <FormFieldError data={{ errors, name: attribute }} />
       </div>
     </div>

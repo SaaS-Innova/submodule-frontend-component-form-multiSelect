@@ -31,7 +31,7 @@ export const MultiSelects = (props: IMultiSelect) => {
       case IFormFieldType.NO_LABEL:
         labelClassName = "";
         fieldClassName = "field grid";
-        divClassName = "";
+        divClassName = "md:w-20rem";
         break;
       case IFormFieldType.TOP_LABEL:
         labelClassName = "";

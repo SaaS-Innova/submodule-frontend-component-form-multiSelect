@@ -13,6 +13,9 @@ export const MultiSelects = (props: IMultiSelect) => {
     fieldType,
     optionLabel = "label",
     maxSelectedLabels,
+    handleOnHide,
+    display = "comma",
+    removeIcon = true,
   } = props;
   const { label, options, placeholder } = form[attribute];
   const { required, disabled } = form[attribute].rules;
@@ -72,11 +75,18 @@ export const MultiSelects = (props: IMultiSelect) => {
               placeholder={placeholder || defaultPlaceHolder}
               optionLabel={optionLabel}
               maxSelectedLabels={maxSelectedLabels}
+              onHide={() => {
+                if (handleOnHide) {
+                  handleOnHide(field.value);
+                }
+              }}
               filter
               className={`w-full ${errors[attribute] ? "p-invalid" : ""}`}
               onChange={(e) => {
                 field.onChange(e.value);
               }}
+              display={display}
+              removeIcon={removeIcon}
             />
           )}
         />

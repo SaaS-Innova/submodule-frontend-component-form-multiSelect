@@ -4,7 +4,7 @@ export interface IMultiSelect {
   optionLabel?: string;
   maxSelectedLabels?: number;
   fieldType?: "top-label" | "no-label";
-  handleOnHide?: (data: number[]) => void;
+  handleOnHide?: (data: any) => void;
   removeIcon?: boolean;
   display?: string;
 }

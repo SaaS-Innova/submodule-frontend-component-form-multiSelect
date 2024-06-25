@@ -6,5 +6,5 @@ export interface IMultiSelect {
   fieldType?: "top-label" | "no-label";
   handleOnHide?: (data: any) => void;
   removeIcon?: boolean;
-  display?: string;
+  display?: "comma" | "chip";
 }

@@ -3,8 +3,9 @@ export interface IMultiSelect {
   form: any;
   optionLabel?: string;
   maxSelectedLabels?: number;
-  fieldType?: "top-label" | "no-label";
+  fieldType?: 'top-label' | 'no-label';
   handleOnHide?: (data: any) => void;
   removeIcon?: boolean;
-  display?: "comma" | "chip";
+  display?: 'comma' | 'chip';
+  itemTemplate?: (option: any) => JSX.Element;
 }

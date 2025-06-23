@@ -8,4 +8,6 @@ export interface IMultiSelect {
   removeIcon?: boolean;
   display?: 'comma' | 'chip';
   itemTemplate?: (option: any) => JSX.Element;
+  panelHeaderTemplate?: (options: any) => any;
+  itemClassName?: string;
 }

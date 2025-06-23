@@ -17,6 +17,8 @@ export const MultiSelects = (props: IMultiSelect) => {
     display = "comma",
     removeIcon = true,
     itemTemplate,
+    panelHeaderTemplate,
+    itemClassName,
   } = props;
   const { label, options, placeholder } = form[attribute];
   const { required, disabled } = form[attribute].rules;
@@ -91,6 +93,8 @@ export const MultiSelects = (props: IMultiSelect) => {
               }}
               display={display}
               removeIcon={removeIcon}
+              panelHeaderTemplate={panelHeaderTemplate}
+              itemClassName={itemClassName}
             />
           )}
         />

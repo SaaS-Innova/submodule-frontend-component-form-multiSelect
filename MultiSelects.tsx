@@ -95,6 +95,9 @@ export const MultiSelects = (props: IMultiSelect) => {
               removeIcon={removeIcon}
               panelHeaderTemplate={panelHeaderTemplate}
               itemClassName={itemClassName}
+              virtualScrollerOptions={{
+                itemSize: 34,
+              }}
             />
           )}
         />

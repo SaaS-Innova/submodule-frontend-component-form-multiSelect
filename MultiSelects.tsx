@@ -19,6 +19,7 @@ export const MultiSelects = (props: IMultiSelect) => {
     itemTemplate,
     panelHeaderTemplate,
     itemClassName,
+    itemSize = 34,
   } = props;
   const { label, options, placeholder } = form[attribute];
   const { required, disabled } = form[attribute].rules;
@@ -96,7 +97,7 @@ export const MultiSelects = (props: IMultiSelect) => {
               panelHeaderTemplate={panelHeaderTemplate}
               itemClassName={itemClassName}
               virtualScrollerOptions={{
-                itemSize: 34,
+                itemSize: itemSize,
               }}
             />
           )}

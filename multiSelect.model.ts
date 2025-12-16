@@ -10,4 +10,5 @@ export interface IMultiSelect {
   itemTemplate?: (option: any) => JSX.Element;
   panelHeaderTemplate?: (options: any) => any;
   itemClassName?: string;
+  itemSize?: number;
 }

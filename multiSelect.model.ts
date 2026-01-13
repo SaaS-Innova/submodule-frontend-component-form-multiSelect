@@ -11,4 +11,5 @@ export interface IMultiSelect {
   panelHeaderTemplate?: (options: any) => any;
   itemClassName?: string;
   itemSize?: number;
+  searchString?: string;
 }

@@ -12,6 +12,7 @@ export const MultiSelects = (props: IMultiSelect) => {
     form,
     fieldType,
     optionLabel = "label",
+    searchString = "label",
     maxSelectedLabels,
     handleOnHide,
     display = "comma",
@@ -88,6 +89,7 @@ export const MultiSelects = (props: IMultiSelect) => {
               }}
               itemTemplate={itemTemplate}
               filter
+              filterBy={searchString}
               className={`w-full ${errors[attribute] ? "p-invalid" : ""}`}
               onChange={(e) => {
                 field.onChange(e.value);

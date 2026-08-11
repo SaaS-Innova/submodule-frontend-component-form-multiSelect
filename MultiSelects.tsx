@@ -12,11 +12,16 @@ export const MultiSelects = (props: IMultiSelect) => {
     form,
     fieldType,
     optionLabel = "label",
+    searchString = "label",
     maxSelectedLabels,
     handleOnHide,
     display = "comma",
     removeIcon = true,
     itemTemplate,
+    panelHeaderTemplate,
+    itemClassName,
+    itemSize = 34,
+    prefixIcon,
   } = props;
   const { label, options, placeholder } = form[attribute];
   const { required, disabled } = form[attribute].rules;
@@ -64,7 +69,18 @@ export const MultiSelects = (props: IMultiSelect) => {
   return (
     <div className={fieldClassName}>
       {fieldType !== IFormFieldType.NO_LABEL && labelElement}
-      <div className={divClassName}>
+      <div
+        className={`${divClassName}  ${prefixIcon ? "p-inputgroup align-items-center" : ""}`}
+      >
+        {prefixIcon && (
+          <span className="p-prefix-icon flex mr-2">
+            {typeof prefixIcon === "string" ? (
+              <i className={prefixIcon}></i>
+            ) : (
+              prefixIcon
+            )}
+          </span>
+        )}
         <Controller
           name={attribute}
           control={control}
@@ -85,12 +101,18 @@ export const MultiSelects = (props: IMultiSelect) => {
               }}
               itemTemplate={itemTemplate}
               filter
+              filterBy={searchString}
               className={`w-full ${errors[attribute] ? "p-invalid" : ""}`}
               onChange={(e) => {
                 field.onChange(e.value);
               }}
               display={display}
               removeIcon={removeIcon}
+              panelHeaderTemplate={panelHeaderTemplate}
+              itemClassName={itemClassName}
+              virtualScrollerOptions={{
+                itemSize: itemSize,
+              }}
             />
           )}
         />
